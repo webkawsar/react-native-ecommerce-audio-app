@@ -1,24 +1,26 @@
-import { useFonts } from 'expo-font';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from "expo-font";
+import { StyleSheet, View } from "react-native";
+import Text from "./src/components/text/text";
+
+
+
 
 export default function App() {
-
   const [fontsLoaded] = useFonts({
-    Manrope_400Regular,
-    Manrope_500Medium,
-    Manrope_700Bold,
+    "Antonio_Medium": require("./assets/fonts/Antonio-Medium.ttf"),
+    "Spartan_Bold": require("./assets/fonts/LeagueSpartan-Bold.ttf"),
+    "Spartan_Regular": require("./assets/fonts/LeagueSpartan-Regular.ttf"),
   });
 
   if (!fontsLoaded) {
-    return <Text>Font is Loading....</Text>;
+    return <Text>Font is loading...</Text>;
   }
+
 
   
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Hello World</Text>
     </View>
   );
 }
@@ -26,8 +28,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

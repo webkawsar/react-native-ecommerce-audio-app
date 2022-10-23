@@ -22,10 +22,10 @@ const Text = (props) => {
       {...rest}
       style={[
         styles,
-        textColor && { color: textColor },
         centered && { textAlign: "center" },
         white && { color: "#fff" },
         uppercase && { textTransform: "uppercase" },
+        textColor && { color: textColor },
       ]}
     >
       {children}
