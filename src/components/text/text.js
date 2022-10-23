@@ -1,14 +1,36 @@
-import React from 'react'
-import { StyleSheet, Text as RNText } from 'react-native'
-import { presets } from './text.preset'
+import React from "react";
+import { Text as ReactNativeText } from "react-native";
+import { presets } from "./text.preset";
 
-const Text = ({children, preset='default', style}) => {
+const Text = (props) => {
+  const {
+    preset = "default",
+    children,
+    style: styleOverride,
+    textColor,
+    centered,
+    white,
+    uppercase,
+    ...rest
+  } = props;
 
-    const textStyles = StyleSheet.compose(presets[preset], style)
+  const style = presets[preset] || presets.base;
+  const styles = [style, styleOverride];
 
-    return (
-        <RNText style={textStyles}>{children}</RNText>
-    )
-}
+  return (
+    <ReactNativeText
+      {...rest}
+      style={[
+        styles,
+        textColor && { color: textColor },
+        centered && { textAlign: "center" },
+        white && { color: "#fff" },
+        uppercase && { textTransform: "uppercase" },
+      ]}
+    >
+      {children}
+    </ReactNativeText>
+  );
+};
 
 export default Text;

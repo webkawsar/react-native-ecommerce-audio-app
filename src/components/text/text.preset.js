@@ -4,21 +4,14 @@ import { typography } from "../../theme/typography";
 
 const BASE = {
     fontFamily: typography.primary,
-    fontSize: 16,
-    color: colors.white
-}
-
-
-const BASE_BOLD = {
-    fontFamily: typography.primaryBold,
-    fontSize: 16,
-    color: colors.white
+    fontSize: 15,
+    color: colors.black
 }
 
 
 const BOLD = {
     fontFamily: typography.bold,
-    color: colors.white
+    color: colors.black
 }
 
 
@@ -27,23 +20,39 @@ export const presets = {
     bold: BOLD,
     h1: {
         ...BOLD,
-        fontSize: 32
+        fontSize: 56
     },
     h2: {
         ...BOLD,
-        fontSize: 28
+        fontSize: 48
     },
     h3: {
-        ...BASE_BOLD,
-        fontSize: 24
+        ...BOLD,
+        fontSize: 36
     },
     h4: {
-        ...BASE_BOLD,
+        ...BOLD,
+        fontSize: 28
+    },
+    h5: {
+        ...BOLD,
+        fontSize: 24
+    },
+    h6: {
+        ...BOLD,
+        fontSize: 18
+    },
+    overline: {
+        fontFamily: typography.regular,
         fontSize: 14
     },
-    small: {
-        ...BASE,
-        fontSize: 12
+    subtitle: {
+        ...BOLD,
+        fontSize: 13
+    },
+    title: {
+        ...BOLD,
+        fontSize: 14
     }
 }
 
