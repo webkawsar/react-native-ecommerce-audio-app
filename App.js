@@ -1,7 +1,8 @@
 import { useFonts } from "expo-font";
-import { StyleSheet, View } from "react-native";
+import { StatusBar, StyleSheet } from "react-native";
 import { Provider } from "react-redux";
 import Text from "./src/components/Text";
+import Navigation from "./src/navigation";
 import { store } from "./src/store";
 
 export default function App() {
@@ -17,9 +18,8 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <View style={styles.container}>
-        <Text preset='h1' style={{ color: "tomato" }}>Hello World</Text>
-      </View>
+      <Navigation />
+      <StatusBar style="light" />
     </Provider>
   );
 }
