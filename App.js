@@ -1,9 +1,8 @@
 import { useFonts } from "expo-font";
 import { StyleSheet, View } from "react-native";
+import { Provider } from "react-redux";
 import Text from "./src/components/Text";
-
-
-
+import { store } from "./src/store";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,12 +15,12 @@ export default function App() {
     return <Text>Font is loading...</Text>;
   }
 
-  
-
   return (
-    <View style={styles.container}>
-      <Text>Hello World</Text>
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Text preset='h1' style={{ color: "tomato" }}>Hello World</Text>
+      </View>
+    </Provider>
   );
 }
 
