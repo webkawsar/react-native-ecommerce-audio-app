@@ -1,6 +1,6 @@
 import React from "react";
 import { Text as ReactNativeText } from "react-native";
-import { presets } from "./text.preset";
+import { presets } from "./text.presets";
 
 const Text = (props) => {
   const {

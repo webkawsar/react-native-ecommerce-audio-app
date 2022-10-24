@@ -1,23 +1,23 @@
 import { useFonts } from "expo-font";
 import { StyleSheet, View } from "react-native";
-import Text from "./src/components/text/text";
+import Text from "./src/components/Text";
 
 
 
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    "Antonio_Medium": require("./assets/fonts/Antonio-Medium.ttf"),
-    "Spartan_Bold": require("./assets/fonts/LeagueSpartan-Bold.ttf"),
-    "Spartan_Regular": require("./assets/fonts/LeagueSpartan-Regular.ttf"),
+    Manrope_Medium: require("./assets/fonts/Manrope-Medium.ttf"),
+    Manrope_Bold: require("./assets/fonts/Manrope-Bold.ttf"),
+    Manrope_Regular: require("./assets/fonts/Manrope-Regular.ttf"),
   });
 
   if (!fontsLoaded) {
     return <Text>Font is loading...</Text>;
   }
 
-
   
+
   return (
     <View style={styles.container}>
       <Text>Hello World</Text>
