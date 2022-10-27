@@ -13,7 +13,7 @@ export const fetchProducts = createAsyncThunk('products/getAll', async (data, th
 
     try {
         
-        const response = await axios.get('https://simple-runaway-theme-backend.herokuapp.com/api/products');
+        const response = await axios.get('https://simple-runaway-theme-backend.herokuapp.com/api/products?populate=*');
         const products = response?.data?.data;
         return products;
 
