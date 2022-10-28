@@ -1,8 +1,10 @@
 import React from "react";
-import { Pressable, StyleSheet, Text } from "react-native";
+import { Pressable, StyleSheet } from "react-native";
 import { colors } from "../theme/colors";
+import Text from "./Text";
 
-const Button = ({ title, type = "primary", onPress, style, fullWidth }) => {
+const Button = ({ title, type = "primary", onPress, style, fullWidth, textColor }) => {
+  
   return (
     <Pressable
       onPress={onPress}
@@ -12,7 +14,7 @@ const Button = ({ title, type = "primary", onPress, style, fullWidth }) => {
         style,
       ]}
     >
-      <Text style={textColor ? {color: textColor} : colors.white}>
+      <Text style={textColor ? {color: textColor} : {color: colors.white}}>
         {title}
       </Text>
     </Pressable>
@@ -30,11 +32,7 @@ const styles = StyleSheet.create({
   primary: {
     backgroundColor: colors.primary,
   },
-  secondary: {
-    backgroundColor: colors.white,
-    borderWidth: 1,
-    borderColor: colors.black,
-  },
+  
 });
 
 export default Button;

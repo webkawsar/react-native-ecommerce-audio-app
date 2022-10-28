@@ -114,7 +114,7 @@ const FeaturedProduct = ({ product }) => {
           truly remarkable sound.
         </Text>
         <Button
-          title={"SEE PRODUCT"}
+          title="SEE PRODUCT"
           style={{
             backgroundColor: colors.black,
             alignSelf: "center",
