@@ -53,6 +53,8 @@ const productSlice = createSlice({
 })
 
 
-
+export const selectHeadphones = (state) => {
+    // console.log(state, 'selectHeadphones state')
+}
 
 export default productSlice.reducer;

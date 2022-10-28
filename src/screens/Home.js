@@ -126,7 +126,7 @@ const FeaturedProduct = ({ product }) => {
   );
 };
 
-const Home = () => {
+const Home = ({navigation}) => {
   const state = useSelector((state) => state.products);
   const featuredProducts = useSelector((state) => {
     const featuredProducts = state?.products?.products.filter(
@@ -175,14 +175,17 @@ const Home = () => {
           <CategoryBox
             title="HEADPHONES"
             image={require("../../assets/images/home-headphone.png")}
+            onPress={() => navigation.navigate('HeadphonesTab')}
           />
           <CategoryBox
             title="SPEAKERS"
             image={require("../../assets/images/home-speaker.png")}
+            onPress={() => navigation.navigate('SpeakersTab')}
           />
           <CategoryBox
             title="EARPHONES"
             image={require("../../assets/images/home-earphone.png")}
+            onPress={() => navigation.navigate('EarphonesTab')}
           />
         </View>
         <View

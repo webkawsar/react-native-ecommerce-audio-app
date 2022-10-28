@@ -1,7 +1,7 @@
 import {
-    Ionicons,
-    MaterialCommunityIcons,
-    SimpleLineIcons
+  Ionicons,
+  MaterialCommunityIcons,
+  SimpleLineIcons
 } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
@@ -165,20 +165,7 @@ const Navigation = () => {
             name="CartTab"
             component={CartStackScreens}
           />
-          <Tab.Screen
-            options={{
-              title: "Cartt",
-              tabBarIcon: ({ color }) => (
-                <TabBarIcon
-                  fontFamily={'Ionicons'}
-                  name="cart-outline"
-                  color={color}
-                />
-              ),
-            }}
-            name="CartT"
-            component={CartStackScreens}
-          />
+          
         </Tab.Navigator>
       </NavigationContainer>
     </>
