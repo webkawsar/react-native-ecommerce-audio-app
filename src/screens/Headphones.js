@@ -4,25 +4,17 @@ import { useSelector } from "react-redux";
 import BannerTitle from "../components/BannerTitle";
 import Button from "../components/Button";
 import CategoryTitle from "../components/CategoryTitle";
+import Footer from "../components/Footer";
 import Text from "../components/Text";
+import { selectedHeadphones } from "../store/features/products/productSlice";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 
 const Headphones = ({ navigation }) => {
-  // const {width} = useWindowDimensions();
-
-  // const state = useSelector(selectHeadphones);
-  const headphones = useSelector((state) => {
-    const filteredHeadphones = state.products.products.filter(
-      (product) =>
-        product?.attributes?.ecommerce_category?.data?.attributes?.name ===
-        "headphones"
-    );
-    return filteredHeadphones;
-  });
-
+  const headphones = useSelector(selectedHeadphones);
   const onPressProduct = (id) => {
-    // navigation.navigate("Details", { id });
+    
+    navigation.navigate("Details", { id });
   };
   return (
     <View>
@@ -82,6 +74,8 @@ const Headphones = ({ navigation }) => {
               </View>
             );
           })}
+
+          <Footer />
         </View>
       </ScrollView>
     </View>
