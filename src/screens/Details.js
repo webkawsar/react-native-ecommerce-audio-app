@@ -1,7 +1,6 @@
 import React from "react";
 import { Image, ScrollView, View } from "react-native";
 import { useSelector } from "react-redux";
-import Text from "../components/Text";
 import { selectProductById } from "../store/features/products/productSlice";
 import { spacing } from "../theme/spacing";
 
@@ -16,7 +15,7 @@ const Details = ({ route }) => {
   return (
     <View>
       <ScrollView>
-        <Text>Details</Text>
+        
         <View style={{ marginVertical: spacing[8] }}>
           {images.data.map((image, index) => {
             return (
@@ -29,7 +28,7 @@ const Details = ({ route }) => {
                   style={{
                     alignSelf: "center",
                     width: "100%",
-                    height: '100%',
+                    height: 200,
                     borderRadius: 12,
                   }}
                 />

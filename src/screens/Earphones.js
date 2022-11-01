@@ -35,11 +35,12 @@ const Earphones = ({ navigation }) => {
                     alignItems: "center",
                     justifyContent: "center",
                     paddingVertical: spacing[5],
+                    paddingHorizontal: spacing[5]
                   }}
                 >
-                  <Image
+                 <Image
                     resizeMode="cover"
-                    style={{ minHeight: 172, minWidth: 200 }}
+                    style={{ height: 200, width: '100%', borderRadius: 12 }}
                     source={{
                       uri: earphone?.attributes?.images?.data[0]?.attributes
                         ?.formats?.thumbnail?.url,
