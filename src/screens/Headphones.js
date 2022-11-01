@@ -13,7 +13,6 @@ import { spacing } from "../theme/spacing";
 const Headphones = ({ navigation }) => {
   const headphones = useSelector(selectedHeadphones);
   const onPressProduct = (id) => {
-    
     navigation.navigate("Details", { id });
   };
   return (
@@ -35,11 +34,12 @@ const Headphones = ({ navigation }) => {
                     alignItems: "center",
                     justifyContent: "center",
                     paddingVertical: spacing[5],
+                    paddingHorizontal: spacing[5]
                   }}
                 >
                   <Image
                     resizeMode="cover"
-                    style={{ minHeight: 172, width: 288 }}
+                    style={{ height: 200, width: '100%', borderRadius: 12 }}
                     source={{
                       uri: headphone?.attributes?.images?.data[0]?.attributes
                         ?.formats?.thumbnail?.url,

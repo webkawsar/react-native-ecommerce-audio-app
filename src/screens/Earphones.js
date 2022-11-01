@@ -39,7 +39,7 @@ const Earphones = ({ navigation }) => {
                 >
                   <Image
                     resizeMode="cover"
-                    style={{ minHeight: 172, width: 288 }}
+                    style={{ minHeight: 172, minWidth: 200 }}
                     source={{
                       uri: earphone?.attributes?.images?.data[0]?.attributes
                         ?.formats?.thumbnail?.url,

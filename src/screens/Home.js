@@ -55,8 +55,6 @@ const CategoryBox = ({ title, image, onPress }) => {
 };
 
 const FeaturedProduct = ({ product }) => {
-  // console.log(product?.attributes?.images?.data[0]?.attributes?.formats?.thumbnail?.url, 'url')
-
   const { width, height } = useWindowDimensions();
 
   return (
@@ -141,7 +139,7 @@ const Home = ({navigation}) => {
     dispatch(fetchProducts());
   }, []);
 
-  // console.log(state, 'state');
+ 
 
   return (
     <View>

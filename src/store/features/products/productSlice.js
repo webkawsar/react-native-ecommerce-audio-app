@@ -51,8 +51,7 @@ const productSlice = createSlice({
 
 
 export const selectedHeadphones = (state) => {
-    console.log(state, 'state')
-
+  
   const filteredHeadphones = state.products.products.filter((product) => product?.attributes?.ecommerce_category?.data?.attributes?.name ===
       "headphones"
   );
@@ -75,6 +74,12 @@ export const selectedSpeakers = (state) => {
   return filteredSpeakers;
 };
 
+
+export const selectProductById = (state, id) => {
+  
+  const product = state.products.products.find(product => product.id === id);
+  return product;
+}
 
 
 
