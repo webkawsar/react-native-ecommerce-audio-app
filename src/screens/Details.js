@@ -109,7 +109,7 @@ const Details = ({ route, navigation }) => {
               marginVertical: spacing[6],
             }}
           >
-            <CounterButton setAmount={setAmount} />
+            <CounterButton amount={amount} setAmount={setAmount} />
             <Button title="Add to cart" style={{ marginLeft: spacing[4] }} />
           </View>
 
