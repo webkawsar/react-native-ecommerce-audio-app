@@ -5,6 +5,7 @@ import Text from "./src/components/Text";
 import Navigation from "./src/navigation";
 import { store } from "./src/store";
 
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Manrope_Medium: require("./assets/fonts/Manrope-Medium.ttf"),

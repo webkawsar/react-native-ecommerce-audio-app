@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import FlashMessage from "react-native-flash-message";
 import Cart from "../screens/Cart";
 import Checkout from "../screens/Checkout";
 import Details from "../screens/Details";
@@ -15,6 +16,7 @@ import Headphones from "../screens/Headphones";
 import Home from "../screens/Home";
 import Speakers from "../screens/Speakers";
 import { colors } from "../theme/colors";
+
 
 const theme = {
   ...DefaultTheme,
@@ -167,6 +169,7 @@ const Navigation = () => {
           />
           
         </Tab.Navigator>
+        <FlashMessage position="top" />
       </NavigationContainer>
     </>
   );

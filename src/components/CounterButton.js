@@ -5,16 +5,16 @@ import Text from "./Text";
 
 
 
-const CounterButton = ({ style, amount, setAmount, initialVal }) => {
+const CounterButton = ({ style, qunatity, setQuantity, initialVal }) => {
   
   const onIncrement = () => {
-    setAmount(amount + 1);
+    setQuantity(qunatity + 1);
   };
 
   const onDecrement = () => {
 
-    if (amount > 0) {
-      setAmount(amount - 1);
+    if (qunatity > 0) {
+      setQuantity(qunatity - 1);
     }
   };
 
@@ -26,7 +26,7 @@ const CounterButton = ({ style, amount, setAmount, initialVal }) => {
         </Text>
       </Pressable>
       
-      <Text>{amount}</Text>
+      <Text>{qunatity}</Text>
 
       <Pressable onPress={onIncrement} style={styles.counterBtn}>
         <Text style={styles.btnText} textColor="#c4c4c4">

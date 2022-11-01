@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Image, Pressable, ScrollView, View } from "react-native";
+import { showMessage } from "react-native-flash-message";
 import { useDispatch, useSelector } from "react-redux";
 import BannerTitle from "../components/BannerTitle";
 import Button from "../components/Button";
@@ -9,6 +10,8 @@ import Text from "../components/Text";
 import { selectProductById } from "../store/features/products/productSlice";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
+
+
 
 const Details = ({ route, navigation }) => {
   const productId = route.params.id;
@@ -31,16 +34,18 @@ const Details = ({ route, navigation }) => {
     },
   } = product;
 
-  const [amount, setAmount] = useState(0);
+  const [qunatity, setQuantity] = useState(0);
   const dispatch = useDispatch();
 
   const add = () => {
-    // if(amount === 0) {
-    //     return showMessage({
-    //         message: 'Amount must be greater than 0',
-    //         type: 'danger',
-    //     })
-    // }
+    
+    if(!qunatity) {
+        return showMessage({
+            message: 'Product quantity must be greater than 0',
+            type: 'danger',
+        })
+    }
+
     // // now we can add products to cart
     // // we create a cart product
     // const cartProduct = {
@@ -79,7 +84,7 @@ const Details = ({ route, navigation }) => {
               alignItems: "center",
               justifyContent: "center",
               paddingVertical: spacing[5],
-              paddingHorizontal: spacing[5]
+              paddingHorizontal: spacing[5],
             }}
           >
             <Image
@@ -109,8 +114,12 @@ const Details = ({ route, navigation }) => {
               marginVertical: spacing[6],
             }}
           >
-            <CounterButton amount={amount} setAmount={setAmount} />
-            <Button title="Add to cart" style={{ marginLeft: spacing[4] }} />
+            <CounterButton qunatity={qunatity} setQuantity={setQuantity} />
+            <Button
+              title="Add to cart"
+              style={{ marginLeft: spacing[4] }}
+              onPress={add}
+            />
           </View>
 
           <View style={{ marginVertical: spacing[5] }}>
