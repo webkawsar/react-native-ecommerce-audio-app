@@ -11,7 +11,7 @@ import { store } from "./src/store";
 let persistor = persistStore(store);
 
 export default function App() {
-  
+
   const [fontsLoaded] = useFonts({
     Manrope_Medium: require("./assets/fonts/Manrope-Medium.ttf"),
     Manrope_Bold: require("./assets/fonts/Manrope-Bold.ttf"),
@@ -21,8 +21,6 @@ export default function App() {
   if (!fontsLoaded) {
     return <Text>Font is loading...</Text>;
   }
-
-
 
   return (
     <Provider store={store}>
