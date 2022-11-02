@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import { useSelector } from "react-redux";
 import Cart from "../screens/Cart";
 import Checkout from "../screens/Checkout";
 import Details from "../screens/Details";
@@ -15,7 +16,6 @@ import Headphones from "../screens/Headphones";
 import Home from "../screens/Home";
 import Speakers from "../screens/Speakers";
 import { colors } from "../theme/colors";
-
 
 const theme = {
   ...DefaultTheme,
@@ -86,6 +86,7 @@ const TabBarIcon = ({ fontFamily, name, color }) => {
 
 const Tab = createBottomTabNavigator();
 const Navigation = () => {
+  const cart = useSelector((state) => state.cart);
   return (
     <>
       <NavigationContainer theme={theme}>
@@ -129,7 +130,7 @@ const Navigation = () => {
               title: "Earphones",
               tabBarIcon: ({ color }) => (
                 <TabBarIcon
-                  fontFamily={'SimpleLineIcons'}
+                  fontFamily={"SimpleLineIcons"}
                   name="earphones-alt"
                   color={color}
                 />
@@ -157,18 +158,17 @@ const Navigation = () => {
               title: "Cart",
               tabBarIcon: ({ color }) => (
                 <TabBarIcon
-                  fontFamily={'Ionicons'}
+                  fontFamily={"Ionicons"}
                   name="cart-outline"
                   color={color}
                 />
               ),
+              tabBarBadge: cart.length > 0 ? cart.length : null,
             }}
             name="CartTab"
             component={CartStackScreens}
           />
-          
         </Tab.Navigator>
-        
       </NavigationContainer>
     </>
   );
