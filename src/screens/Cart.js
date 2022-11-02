@@ -6,9 +6,7 @@ import CounterButton from "../components/CounterButton";
 import Text from "../components/Text";
 import {
   addToCart,
-  removeFromCart,
-  reset,
-  selectTotalAmount
+  removeFromCart, reset, selectTotalAmount
 } from "../store/features/cart/cartSlice";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
@@ -20,7 +18,14 @@ const Cart = ({ navigation }) => {
 
   if (cart.length === 0) {
     return (
-      <View style={{ flex: 1, margin: spacing[5], justifyContent: 'center', alignItems: 'center' }}>
+      <View
+        style={{
+          flex: 1,
+          margin: spacing[5],
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Text>Cart is empty</Text>
       </View>
     );
@@ -57,6 +62,27 @@ const Cart = ({ navigation }) => {
     dispatch(addToCart(cartProduct));
   };
 
+  const handleRemoveAllItems = () => {
+
+    Alert.alert(
+      "Remove all item?",
+      "Do you want to remove all items from your cart?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => {},
+          style: "cancel",
+        },
+        {
+          text: "Confirm",
+          onPress: () => {
+            dispatch(reset())
+          },
+        },
+      ]
+    );
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -69,7 +95,7 @@ const Cart = ({ navigation }) => {
             }}
           >
             <Text preset="h6">{`Cart (${cart.length})`}</Text>
-            <Pressable onPress={() => dispatch(reset())}>
+            <Pressable onPress={handleRemoveAllItems}>
               <Text
                 textColor="#757575"
                 centered
@@ -90,7 +116,7 @@ const Cart = ({ navigation }) => {
                 qunatity,
                 quantityPrice,
               } = item;
-              
+
               return (
                 <View
                   key={item.id}
@@ -110,7 +136,9 @@ const Cart = ({ navigation }) => {
                     }}
                   >
                     <Image
-                      source={{uri: 'https://images.unsplash.com/photo-1661956601030-fdfb9c7e9e2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=442&q=80'}}
+                      source={{
+                        uri: "https://images.unsplash.com/photo-1661956601030-fdfb9c7e9e2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=442&q=80",
+                      }}
                       style={{ height: 36, width: 36 }}
                       resizeMode="contain"
                     />
@@ -130,7 +158,7 @@ const Cart = ({ navigation }) => {
                 </View>
               );
             })}
-            
+
             <View
               style={{
                 flexDirection: "row",
