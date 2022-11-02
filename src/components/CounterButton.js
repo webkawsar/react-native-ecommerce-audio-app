@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { colors } from "../theme/colors";
 import Text from "./Text";
 
-
-
-const CounterButton = ({ style, qunatity, setQuantity, initialVal }) => {
+const CounterButton = ({ style, setQuantity, initialVal }) => {
+  const [count, setCount] = useState(initialVal || 0);
   
   const onIncrement = () => {
-    setQuantity(qunatity + 1);
-  };
 
+    setCount((prev) => prev + 1);
+    setQuantity(count + 1);
+  };
   const onDecrement = () => {
 
-    if (qunatity > 0) {
-      setQuantity(qunatity - 1);
+    if (count > 0) {
+      setCount((prev) => prev - 1);
+      setQuantity(count - 1);
     }
   };
 
@@ -25,8 +26,8 @@ const CounterButton = ({ style, qunatity, setQuantity, initialVal }) => {
           -
         </Text>
       </Pressable>
-      
-      <Text>{qunatity}</Text>
+
+      <Text>{count}</Text>
 
       <Pressable onPress={onIncrement} style={styles.counterBtn}>
         <Text style={styles.btnText} textColor="#c4c4c4">

@@ -53,8 +53,8 @@ const Details = ({ route, navigation }) => {
       name,
       featuredImage: images[0]?.attributes?.formats?.thumbnail?.url,
       price,
-      quantityPrice: price * qunatity,
       qunatity,
+      quantityPrice: price * qunatity,
     };
 
     // product added ot redux store
@@ -118,7 +118,7 @@ const Details = ({ route, navigation }) => {
               marginVertical: spacing[6],
             }}
           >
-            <CounterButton qunatity={qunatity} setQuantity={setQuantity} />
+            <CounterButton setQuantity={setQuantity} />
             <Button
               title="Add to cart"
               style={{ marginLeft: spacing[4] }}
