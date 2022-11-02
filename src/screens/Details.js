@@ -7,17 +7,17 @@ import BannerTitle from "../components/BannerTitle";
 import Button from "../components/Button";
 import CounterButton from "../components/CounterButton";
 import Text from "../components/Text";
+import { addToCart } from "../store/features/cart/cartSlice";
 import { selectProductById } from "../store/features/products/productSlice";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
-
-
 
 const Details = ({ route, navigation }) => {
   const productId = route.params.id;
   const product = useSelector((state) => selectProductById(state, productId));
 
   const {
+    id,
     attributes: {
       images,
       name,
@@ -38,29 +38,33 @@ const Details = ({ route, navigation }) => {
   const dispatch = useDispatch();
 
   const add = () => {
-    
-    if(!qunatity) {
-        return showMessage({
-            message: 'Product quantity must be greater than 0',
-            type: 'danger',
-        })
+
+    if (!qunatity) {
+      
+      return showMessage({
+        message: "Product quantity must be greater than 0",
+        type: "danger",
+      });
     }
 
-    // // now we can add products to cart
-    // // we create a cart product
-    // const cartProduct = {
-    //     id,
-    //     name,
-    //     featuredImage,
-    //     price,
-    //     quantityPrice: price * amount,
-    //     amount: amount
-    // }
-    // dispatch(addToCart({cartProduct}));
-    // showMessage({
-    //     message: 'Product added to cart',
-    //     type: 'success',
-    // })
+    // now we can add products to cart
+    const cartProduct = {
+      id,
+      name,
+      featuredImage: images[0]?.attributes?.formats?.thumbnail?.url,
+      price,
+      quantityPrice: price * qunatity,
+      qunatity,
+    };
+
+    // product added ot redux store
+    dispatch(addToCart(cartProduct));
+
+    // show success message
+    showMessage({
+      message: "Product added to cart",
+      type: "success",
+    });
   };
 
   return (
