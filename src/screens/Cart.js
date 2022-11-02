@@ -20,13 +20,8 @@ const Cart = ({ navigation }) => {
 
   if (cart.length === 0) {
     return (
-      <View style={{ flex: 1, margin: spacing[5] }}>
-        {/* <LottieView
-          autoPlay
-          style={{ alignSelf: "center" }}
-          loop={false}
-          source={require("../../assets/images/empty-cart.json")}
-        /> */}
+      <View style={{ flex: 1, margin: spacing[5], justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Cart is empty</Text>
       </View>
     );
   }
